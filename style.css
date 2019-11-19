@@ -1,0 +1,37 @@
+.header{
+    background: rgb(87, 86, 86);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+.left{
+    background: rgb(247, 247, 247);
+    height: 500px;
+}
+.current{
+    border: solid .5px;
+    height: 225px;
+    margin: 10px;
+}
+.box{
+    height: 200px;
+    width: 120px;
+    background: rgb(11, 109, 255);
+    float:left;
+    margin:10px;
+    color:white;
+    text-align:center;
+    
+}
+.fiveday{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+button{
+    background: rgb(11, 109, 255);
+    color: white;
+}
+#innerbox{
+    margin: 20px;
+}

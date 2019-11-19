@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="./script.js"></script>
+     <link rel="stylesheet" href="./style.css" />
+     
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <header class="header col-md-12">
+                <h1>Weather Dashboard</h1>
+            </header>
+        </div>
+        <div class="row">
+            <div class="col-md-4 left">
+                <h5>Search for a City:</5h>
+                    <input type="text" class="col-md-8" id="" placeholder=" Enter"></input>
+                    <button>Search</button>
+                    <div class="newBtn">
+
+                    </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="current">
+                    <div id="innerbox">
+                    <p id='time'>
+                        <h3 id="city">Charlotte</h3>
+                        <br>
+                        <h7 id="temp">Temperature:</h7>
+                        <br>
+                        <h7 id="humidity">Humidity:</h7>
+                        <br>
+                        <h7 id='wind'>Wind Speed:</h7>
+                        <br>
+                        <h7 id="uv">UV Index:</h7>
+                    </p>
+                </div>
+                </div>
+                <div class="row fiveday">
+                    <h5>5 Day Forecast: </h5>
+                </div>
+                <div class="row">
+                    <div class="box" id="weather1">
+                            <div class="date1"></div>
+                            <br>
+                            <div class="icon1"></div>
+                            <div class="temp1"></div>
+                            <div class="humidity1"></div>
+                    </div>
+                    <div class="box" id="weather2">
+                            <div class="date2"></div>
+                            <br>
+                            <div class="icon2"></div>
+                            <div class="temp2"></div>
+                            <div class="humidity2"></div>
+                    </div>
+                    <div class="box">
+                            <div class="date3"></div>
+                            <br>
+                            <div class="icon3"></div>
+                            <div class="temp3"></div>
+                            <div class="humidity3"></div>
+                    </div>
+                    <div class="box">
+                            <div class="date4"></div>
+                            <br>
+                            <div class="icon4"></div>
+                            <div class="temp4"></div>
+                            <div class="humidity4"></div>
+                    </div>
+                    <div class="box">
+                            <div class="date5"></div>
+                            <br>
+                            <div class="icon5"></div>
+                            <div class="temp5"></div>
+                            <div class="humidity5"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    
+</body>
+
+</html>
