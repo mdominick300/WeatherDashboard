@@ -8,6 +8,7 @@
 .left{
     background: rgb(247, 247, 247);
     height: 500px;
+    
 }
 .current{
     border: solid .5px;
@@ -34,4 +35,13 @@ button{
 }
 #innerbox{
     margin: 20px;
+}
+.fivebox{
+    margin: 20px;
+}
+h5{
+    margin: 15px;
+}
+input{
+    margin-top: 15px;
 }
