@@ -77,7 +77,7 @@ var searchBtn = document.querySelector("#cityBtn");
 var input = document.querySelector("#cityIn");
 var newCities = [];
 var form = document.querySelector("#form");
-var addedCity = document.querySelector("#lister");
+var list = document.querySelector("#lister");
 
 
 render();
