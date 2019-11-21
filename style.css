@@ -48,3 +48,13 @@ input{
 .mainbox{
     height:auto;
 }
+ul{
+    list-style-type: none;
+  }
+li{
+Padding:20px;
+border: solid .5px lightgrey;
+margin-left:-40px;
+margin-top: 10px;
+
+}

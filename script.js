@@ -1,3 +1,10 @@
+var searchBtn = document.querySelector("#cityBtn");
+var input = document.querySelector("#cityIn");
+var newCities = [];
+var form = document.querySelector("#form");
+var list = document.querySelector("#lister");
+var city = "London";
+
 var update = function () {
     $("#city").text(city + " ("
         + moment().format('MMMM D, YYYY') + ") ");
@@ -6,7 +13,7 @@ var update = function () {
 setInterval(update, 100);
 
 
-var city = "Charlotte";
+
 function weatherCurrent() {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=89696f3ad78f478fd85c5509ea49cd53";
    
@@ -38,7 +45,7 @@ function weatherFuture() {
         console.log(response);
         var tempF = ((response.list[4].main.temp - 273.15) * (9 / 5) + 32).toFixed(0);
         $('.date1').text(moment(response.list[4].dt_txt).format("M/D/YYYY"));
-        $('.icon1').append("<img id='theImg' src='http://openweathermap.org/img/wn/" + response.list[4].weather[0].icon + "@2x.png'/>");
+        $('.icon1').text("<img src='http://openweathermap.org/img/wn/" + response.list[4].weather[0].icon + "@2x.png'/>");
         $('.temp1').text("Temp: " + tempF + " °F");
         $('.humidity1').text("Humidity: " + response.list[4].main.humidity);
 
@@ -73,34 +80,32 @@ function weatherFuture() {
 
 
 
-var searchBtn = document.querySelector("#cityBtn");
-var input = document.querySelector("#cityIn");
-var newCities = [];
-var form = document.querySelector("#form");
-var list = document.querySelector("#lister");
-
-
-render();
 function render() {
   // Clear todoList element 
-  console.log(searchBtn);
+
   list.innerHTML = "";
   
 
   // Render a new li for each todo
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < newCities.length; i++) {
     var todo = newCities[i];
 
     var li = document.createElement("li");
     li.textContent = todo;
-    list.appendChild(li);
+    list.prepend(li);
+    if (newCities.length>6){
+        var removed = newCities.splice(-7,1);
+    }
   }
 }
 
 // When form is submitted...
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
-
+searchBtn.addEventListener("click", function(event) {
+  
+    event.preventDefault();
+    
+ city= input.value;
+ console.log(city);
   var todoText = input.value.trim();
 
   // Return from function early if submitted todoText is blank
@@ -114,8 +119,10 @@ form.addEventListener("submit", function(event) {
 
   // Re-render the list
   render();
+  weatherCurrent();
+weatherFuture();
 });
 
+render();
 
- 
   
