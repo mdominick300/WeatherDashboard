@@ -7,7 +7,7 @@
 }
 .left{
     background: rgb(247, 247, 247);
-    height: 500px;
+    height: auto;
     
 }
 .current{
@@ -44,4 +44,7 @@ h5{
 }
 input{
     margin-top: 15px;
+}
+.mainbox{
+    height:auto;
 }

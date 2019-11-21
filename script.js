@@ -6,12 +6,10 @@ var update = function () {
 setInterval(update, 100);
 
 
-
-
 var city = "Charlotte";
 function weatherCurrent() {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=89696f3ad78f478fd85c5509ea49cd53";
-
+   
 
 
     $.ajax({
@@ -19,7 +17,7 @@ function weatherCurrent() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        var tempF = ((response.main.temp - 273.15) * (9 / 5) + 32).toFixed(2);
+        var tempF = ((response.main.temp - 273.15) * (9 / 5) + 32).toFixed(1);
         $('#temp').text("Temperature: " + tempF + " °F");
         $('#humidity').text("Humidity: " + response.main.humidity);
         $('#wind').text("Wind Speed: " + response.wind.speed);
@@ -28,6 +26,7 @@ function weatherCurrent() {
     )
 };
 weatherCurrent();
+weatherFuture();
 
 function weatherFuture() {
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=89696f3ad78f478fd85c5509ea49cd53";
@@ -71,7 +70,52 @@ function weatherFuture() {
     }
     )
 };
-weatherFuture();
-    // function newCity(){
 
-    // }
+
+
+var searchBtn = document.querySelector("#cityBtn");
+var input = document.querySelector("#cityIn");
+var newCities = [];
+var form = document.querySelector("#form");
+var addedCity = document.querySelector("#lister");
+
+
+render();
+function render() {
+  // Clear todoList element 
+  console.log(searchBtn);
+  list.innerHTML = "";
+  
+
+  // Render a new li for each todo
+  for (var i = 0; i < 6; i++) {
+    var todo = newCities[i];
+
+    var li = document.createElement("li");
+    li.textContent = todo;
+    list.appendChild(li);
+  }
+}
+
+// When form is submitted...
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var todoText = input.value.trim();
+
+  // Return from function early if submitted todoText is blank
+  if (todoText === "") {
+    return;
+  }
+
+  // Add new todoText to todos array, clear the input
+  newCities.push(todoText);
+  input.value = "";
+
+  // Re-render the list
+  render();
+});
+
+
+ 
+  
