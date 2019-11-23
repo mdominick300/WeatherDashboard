@@ -1,60 +1,62 @@
-.header{
-    background: rgb(87, 86, 86);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
+.header {
+  background: rgb(87, 86, 86);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
 }
-.left{
-    background: rgb(247, 247, 247);
-    height: auto;
-    
+.left {
+  background: rgb(247, 247, 247);
+  height: auto;
 }
-.current{
-    border: solid .5px;
-    height: 225px;
-    margin: 10px;
+.current {
+  border: solid 0.5px;
+  height: 225px;
+  margin: 10px;
 }
-.box{
-    height: 200px;
-    width: 120px;
-    background: rgb(11, 109, 255);
-    float:left;
-    margin:10px;
-    color:white;
-    text-align:center;
-    
+.box {
+  height: 200px;
+  width: 120px;
+  background: rgb(11, 109, 255);
+  float: left;
+  margin: 10px;
+  color: white;
+  text-align: center;
 }
-.fiveday{
-    margin-left: 20px;
-    margin-top: 20px;
+.fiveday {
+  margin-left: 20px;
+  margin-top: 20px;
 }
-button{
-    background: rgb(11, 109, 255);
-    color: white;
+#cityBtn {
+  background: rgb(11, 109, 255);
+  color: white;
+  margin-top: 20px;
 }
-#innerbox{
-    margin: 20px;
+#innerbox {
+  margin: 20px;
 }
-.fivebox{
-    margin: 20px;
+.fivebox {
+  margin: 20px;
 }
-h5{
-    margin: 15px;
+h5 {
+  margin: 15px;
 }
-input{
-    margin-top: 15px;
+input {
+  margin-top: 15px;
 }
-.mainbox{
-    height:auto;
+.mainbox {
+  height: auto;
 }
-ul{
-    list-style-type: none;
-  }
-li{
-Padding:20px;
-border: solid .5px lightgrey;
-margin-left:-40px;
-margin-top: 10px;
+ul {
+  list-style-type: none;
+}
 
+#btn {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: white;
+  border: solid 0.5px lightgrey;
+  margin-left: -40px;
+  margin-top: 10px;
 }

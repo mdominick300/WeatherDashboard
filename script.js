@@ -24,7 +24,7 @@ function weatherCurrent() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        var tempF = ((response.main.temp - 273.15) * (9 / 5) + 32).toFixed(1);
+        var tempF = ((response.main.temp_max - 273.15) * (9 / 5) + 32).toFixed(1);
         $('#temp').text("Temperature: " + tempF + " °F");
         $('#humidity').text("Humidity: " + response.main.humidity);
         $('#wind').text("Wind Speed: " + response.wind.speed);
@@ -37,13 +37,14 @@ weatherFuture();
 
 function weatherFuture() {
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=89696f3ad78f478fd85c5509ea49cd53";
+    
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        var tempF = ((response.list[4].main.temp - 273.15) * (9 / 5) + 32).toFixed(0);
+        var tempF = ((response.list[4].main.temp_max - 273.15) * (9 / 5) + 32).toFixed(0);
         $('.date1').text(moment(response.list[4].dt_txt).format("M/D/YYYY"));
         $('.icon1').empty();
         console.log('image: ', response.list[4].weather[0].icon); // TODO: Remove
@@ -51,26 +52,26 @@ function weatherFuture() {
         $('.temp1').text("Temp: " + tempF + " °F");
         $('.humidity1').text("Humidity: " + response.list[4].main.humidity);
 
-        var tempF2 = ((response.list[12].main.temp - 273.15) * (9 / 5) + 32).toFixed(0);
+        var tempF2 = ((response.list[12].main.temp_max - 273.15) * (9 / 5) + 32).toFixed(0);
         $('.date2').text(moment(response.list[12].dt_txt).format("M/D/YYYY"));
         // $('icon2').html('src', 'http://openweathermap.org/img/wn/" + response.list[12].weather[0].icon + "@2x.png' )
         $('.icon2').html('<img src="http://openweathermap.org/img/wn/' + response.list[12].weather[0].icon + '@2x.png"/>');
         $('.temp2').text("Temp: " + tempF2 + " °F");
         $('.humidity2').text("Humidity: " + response.list[12].main.humidity);
 
-        var tempF3 = ((response.list[20].main.temp - 273.15) * (9 / 5) + 32).toFixed(0);
+        var tempF3 = ((response.list[20].main.temp_max - 273.15) * (9 / 5) + 32).toFixed(0);
         $('.date3').text(moment(response.list[20].dt_txt).format("M/D/YYYY"));
         $('.icon3').html("<img id='theImg' src='http://openweathermap.org/img/wn/" + response.list[20].weather[0].icon + "@2x.png'/>");
         $('.temp3').text("Temp: " + tempF3 + " °F");
         $('.humidity3').text("Humidity: " + response.list[20].main.humidity);
 
-        var tempF4 = ((response.list[28].main.temp - 273.15) * (9 / 5) + 32).toFixed(0);
+        var tempF4 = ((response.list[28].main.temp_max - 273.15) * (9 / 5) + 32).toFixed(0);
         $('.date4').text(moment(response.list[28].dt_txt).format("M/D/YYYY"));
         $('.icon4').html("<img id='theImg' src='http://openweathermap.org/img/wn/" + response.list[28].weather[0].icon + "@2x.png'/>");
         $('.temp4').text("Temp: " + tempF4 + " °F");
         $('.humidity4').text("Humidity: " + response.list[28].main.humidity);
 
-        var tempF5 = ((response.list[36].main.temp - 273.15) * (9 / 5) + 32).toFixed(0);
+        var tempF5 = ((response.list[36].main.temp_max - 273.15) * (9 / 5) + 32).toFixed(0);
         $('.date5').text(moment(response.list[36].dt_txt).format("M/D/YYYY"));
         $('.icon5').html("<img id='theImg' src='http://openweathermap.org/img/wn/" + response.list[36].weather[0].icon + "@2x.png'/>");
         $('.temp5').text("Temp: " + tempF5 + " °F");
@@ -94,12 +95,29 @@ function render() {
     var todo = newCities[i];
 
     var li = document.createElement("li");
-    li.textContent = todo;
+    var button =document.createElement("button")
+    button.setAttribute("id","btn");
+    button.textContent = todo;
+    li.appendChild(button);
     list.prepend(li);
     if (newCities.length>6){
         var removed = newCities.splice(-7,1);
     }
+    button.addEventListener("click", function(event){
+        event.preventDefault();
+        // value= $("#btn");
+        // this.value.attr("textContent", value);
+        city = this.textContent   
+    console.log(this.textContent);
+    
+    console.log(city);
+    weatherCurrent();
+weatherFuture();
+        
+    })
+    
   }
+  
 }
 
 // When form is submitted...
@@ -125,6 +143,8 @@ searchBtn.addEventListener("click", function(event) {
   weatherCurrent();
 weatherFuture();
 });
+
+
 
 render();
 
