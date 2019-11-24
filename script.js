@@ -105,8 +105,7 @@ function render() {
     }
     button.addEventListener("click", function(event){
         event.preventDefault();
-        // value= $("#btn");
-        // this.value.attr("textContent", value);
+       
         city = this.textContent   
     console.log(this.textContent);
     
